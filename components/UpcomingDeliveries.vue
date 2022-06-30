@@ -1,24 +1,24 @@
 <template>
   <div>
-    <v-card>
+    <v-card elevation="2">
       <v-card-title>Imperfect Foods</v-card-title>
       <div v-if="canUpdateImperfectFoods">
         <v-card-text
           >The current order can be updated until Wednesday.</v-card-text
         >
-        <v-card-action>
+        <v-card-actions>
           <a href="https://www.imperfectfoods.com/shopping?"
             >Update Current Order</a
           >
-        </v-card-action>
+        </v-card-actions>
       </div>
       <div v-else-if="isUpcomingImperfectFoods">
         <v-card-text>The next order is coming on Friday</v-card-text>
-        <v-card-action>
+        <v-card-actions>
           <a href="https://www.imperfectfoods.com/shopping?"
             ><v-btn>See Upcoming Order</v-btn></a
           >
-        </v-card-action>
+        </v-card-actions>
       </div>
       <div v-else><v-card-text>No upcoming order</v-card-text></div>
     </v-card>
