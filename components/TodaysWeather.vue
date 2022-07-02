@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import apiTokens from '../tokens.js'
 export default {
   name: 'TodaysWeather',
   props: {},
@@ -40,7 +39,7 @@ export default {
   methods: {
     loadWeather() {
       const getTimelineURL = 'https://api.tomorrow.io/v4/timelines'
-      const apiKey = apiTokens.tomorrowWeatherToken
+      const apiKey = 'CpjpjcI1rFh1qtWECG58JE6lzMkAnBVP' // TODO: Get a new key and be secureish. That said, it's a GET request...
       const location = '42.384481,-71.0880066'
       const units = 'imperial'
       const timesteps = 'current'
