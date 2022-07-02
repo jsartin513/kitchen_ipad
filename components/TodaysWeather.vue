@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import apiTokens from '../tokens.js'
 export default {
   name: 'TodaysWeather',
   props: {},
