@@ -1,26 +1,16 @@
 <template>
   <div>
     <v-card elevation="2">
-      <v-card-title>Imperfect Foods</v-card-title>
-      <div v-if="canUpdateImperfectFoods">
-        <v-card-text
-          >The current order can be updated until Wednesday.</v-card-text
+      <v-card-title>Upcoming Groceries</v-card-title>
+      <v-card-text>
+        <h3 class="text-xl">Imperfect Foods</h3>
+        <p class="text-base">{{ imperfectFoodsText }}</p>
+      </v-card-text>
+      <v-card-actions v-if="buttonText">
+        <a href="https://www.imperfectfoods.com/shopping?"
+          ><v-btn>{{ buttonText }}</v-btn></a
         >
-        <v-card-actions>
-          <a href="https://www.imperfectfoods.com/shopping?"
-            >Update Current Order</a
-          >
-        </v-card-actions>
-      </div>
-      <div v-else-if="isUpcomingImperfectFoods">
-        <v-card-text>The next order is coming on Friday</v-card-text>
-        <v-card-actions>
-          <a href="https://www.imperfectfoods.com/shopping?"
-            ><v-btn>See Upcoming Order</v-btn></a
-          >
-        </v-card-actions>
-      </div>
-      <div v-else><v-card-text>No upcoming order</v-card-text></div>
+      </v-card-actions>
     </v-card>
   </div>
 </template>
@@ -35,6 +25,23 @@ export default {
     }
   },
   computed: {
+    buttonText() {
+      if (this.canUpdateImperfectFoods) {
+        return 'Update Current Order'
+      } else if (this.isUpcomingImperfectFoods) {
+        return 'Check Current Order'
+      }
+      return null
+    },
+    imperfectFoodsText() {
+      if (this.canUpdateImperfectFoods) {
+        return 'The current order can be updated until Wednesday.'
+      } else if (this.isUpcomingImperfectFoods) {
+        return 'The next order is coming on Friday.'
+      } else {
+        return 'No upcoming order.'
+      }
+    },
     canUpdateImperfectFoods() {
       const dayOfWeek = this.currentNow.getDay()
       if (dayOfWeek === 2) {
