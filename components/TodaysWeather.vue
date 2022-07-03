@@ -1,9 +1,9 @@
 <template>
   <div>
-    <v-card class="w-full h-full">
+    <v-card class="w-full h-full" elevation="2">
       <v-card-title>Current Weather</v-card-title>
       <v-card-text v-if="showWeather">
-        Temperature: {{ currentTemperature }}
+        <div class="text-6xl">{{ currentTemperature }}&deg;F</div>
       </v-card-text>
       <v-card-text v-if="showFailureMessage"> Weather Load Failed </v-card-text>
     </v-card>
@@ -24,7 +24,7 @@ export default {
   computed: {
     currentTemperature() {
       // TODO: put some caching in place and re-enable this
-      return this.weather ? this.weather.temperature : 89
+      return this.weather ? Math.trunc(this.weather.temperature) : 89
     },
     showWeather() {
       return this.weatherLoaded && !this.weatherLoadFailed
