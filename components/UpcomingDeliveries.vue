@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card elevation="2">
+    <v-card class="w-full h-full" elevation="2">
       <v-card-title>Upcoming Groceries</v-card-title>
       <v-card-text>
         <h3 class="text-xl">Imperfect Foods</h3>
