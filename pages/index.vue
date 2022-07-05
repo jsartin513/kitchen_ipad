@@ -4,6 +4,7 @@
     <div class="grid gap-4 grid-cols-2 px-8">
       <UpcomingDeliveries />
       <TodaysWeather />
+      <FunInfo />
     </div>
   </div>
 </template>
@@ -11,9 +12,10 @@
 <script>
 import UpcomingDeliveries from '~/components/UpcomingDeliveries.vue'
 import TodaysWeather from '~/components/TodaysWeather.vue'
+import FunInfo from '~/components/FunInfo.vue'
 
 export default {
   name: 'IndexPage',
-  components: { UpcomingDeliveries, TodaysWeather },
+  components: { UpcomingDeliveries, TodaysWeather, FunInfo },
 }
 </script>
