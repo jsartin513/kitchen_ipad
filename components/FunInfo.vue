@@ -3,10 +3,12 @@
     <v-card class="w-full h-full" elevation="2">
       <v-card-title>Fun Facts</v-card-title>
       <v-card-text>
-        <div class="text-xl">
-          Days since we were asked if we went to college together
+        <div class="grid grid-cols-2">
+          <div class="text-lg">
+            Days since we were asked if we went to college together
+          </div>
+          <div class="text-6xl text-center">{{ daysSince }}</div>
         </div>
-        <div class="text-6xl">{{ daysSince }}</div>
       </v-card-text>
     </v-card>
   </div>
