@@ -6,6 +6,7 @@
       <TodaysWeather />
       <FoodInFridge />
       <FunInfo />
+      <NextSoxGame />
     </div>
   </div>
 </template>
@@ -15,9 +16,16 @@ import UpcomingDeliveries from '~/components/UpcomingDeliveries.vue'
 import TodaysWeather from '~/components/TodaysWeather.vue'
 import FunInfo from '~/components/FunInfo.vue'
 import FoodInFridge from '~/components/FoodInFridge.vue'
+import NextSoxGame from '~/components/NextSoxGame.vue'
 
 export default {
   name: 'IndexPage',
-  components: { UpcomingDeliveries, TodaysWeather, FunInfo, FoodInFridge },
+  components: {
+    UpcomingDeliveries,
+    TodaysWeather,
+    FunInfo,
+    FoodInFridge,
+    NextSoxGame,
+  },
 }
 </script>
