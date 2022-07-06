@@ -65,7 +65,7 @@ export default {
           case 4200:
           case 4001:
           case 4201:
-            return 'raindrop.pngn'
+            return 'raindrop.png'
         }
       }
       return null
