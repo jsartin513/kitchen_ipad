@@ -1,7 +1,7 @@
 <template>
   <div>
-    <v-card class="w-full h-full" elevation="2">
-      <v-card-title>Current Weather</v-card-title>
+    <v-card class="w-full h-full" elevation="2" color="rgb(199 210 254)">
+      <v-card-title class="text-indigo-800">Current Weather</v-card-title>
       <v-card-text v-if="showWeather">
         <div class="grid gap-2 grid-cols-2 px-2">
           <div>

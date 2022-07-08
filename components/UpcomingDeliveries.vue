@@ -1,9 +1,9 @@
 <template>
   <div>
-    <v-card class="w-full h-full" elevation="2">
-      <v-card-title>Upcoming Groceries</v-card-title>
+    <v-card class="w-full h-full" elevation="2" color="rgb(199 210 254)">
+      <v-card-title class="text-indigo-800">Upcoming Groceries</v-card-title>
       <v-card-text>
-        <h3 class="text-xl">Imperfect Foods</h3>
+        <h3 class="text-lg text-indigo-800">Imperfect Foods</h3>
         <p class="text-base">{{ imperfectFoodsText }}</p>
       </v-card-text>
       <v-card-actions v-if="buttonText">
