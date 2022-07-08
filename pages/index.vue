@@ -1,6 +1,8 @@
 <template>
-  <div>
-    <h1 class="px-16 py-8 text-3xl text-center">What's going on?</h1>
+  <div class="bg-slate-300">
+    <h1 class="px-16 py-8 text-3xl text-center text-indigo-700">
+      What's going on?
+    </h1>
     <div class="grid gap-4 grid-cols-2 px-8">
       <UpcomingDeliveries />
       <TodaysWeather />
