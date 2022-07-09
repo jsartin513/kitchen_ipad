@@ -1,13 +1,11 @@
 <template>
   <div>
-    <v-card class="w-full h-full" elevation="2" color="rgb(199 210 254)">
-      <v-card-title class="text-indigo-800">Fun Facts</v-card-title>
+    <v-card class="w-full h-full" elevation="2">
+      <v-card-title class="text-emerald-800">Fun Facts</v-card-title>
       <v-card-text>
-        <div class="grid grid-cols-2">
-          <div class="text-lg">
-            Days since we were asked if we went to college together
-          </div>
-          <div class="text-6xl text-center text-indigo-700">
+        <div class="grid gap-2 grid-cols-2 px-2">
+          <div>Days since we were asked if we went to college together</div>
+          <div class="text-6xl text-center">
             {{ daysSince }}
           </div>
         </div>

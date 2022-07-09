@@ -1,15 +1,9 @@
 <template>
   <div>
-    <v-card class="w-full h-full" elevation="2" color="rgb(199 210 254)">
-      <v-card-title class="text-indigo-800">Current Weather</v-card-title>
+    <v-card class="w-full h-full" elevation="2">
+      <v-card-title class="text-emerald-800">Current Weather</v-card-title>
       <v-card-text v-if="showWeather">
         <div class="grid gap-2 grid-cols-2 px-2">
-          <div>
-            <div class="text-6xl">{{ currentTemperature }}&deg;F</div>
-            <div class="text-base">
-              Feels like {{ Math.trunc(weather.temperatureApparent) }}&deg;F
-            </div>
-          </div>
           <div>
             <v-img
               :max-width="148"
@@ -19,6 +13,12 @@
               alt="Weather icon"
             />
             <div class="text-base">{{ currentConditions }}</div>
+          </div>
+          <div>
+            <div class="text-6xl">{{ currentTemperature }}&deg;F</div>
+            <div class="text-base">
+              Feels like {{ Math.trunc(weather.temperatureApparent) }}&deg;F
+            </div>
           </div>
         </div>
       </v-card-text>
@@ -60,6 +60,7 @@ export default {
           case 1102:
           case 2100:
           case 2000:
+          case 1001:
             return 'cloud.png'
           case 4000:
           case 4200:
@@ -81,6 +82,8 @@ export default {
             return 'Mostly Clear'
           case 1102:
             return 'Mostly Cloudy'
+          case 1001:
+            return 'Cloudy'
           case 2100:
             return 'Light Fog'
           case 2000:

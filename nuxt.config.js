@@ -33,7 +33,7 @@ export default {
       '@nuxtjs/vuetify',
       {
         theme: {
-          themes: {},
+          themes: { light: {} },
         },
       },
     ],
