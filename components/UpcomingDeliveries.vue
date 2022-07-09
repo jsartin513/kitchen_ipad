@@ -1,10 +1,10 @@
 <template>
   <div>
-    <v-card class="w-full h-full" elevation="2" color="rgb(199 210 254)">
-      <v-card-title class="text-indigo-800">Upcoming Groceries</v-card-title>
+    <v-card class="w-full h-full" elevation="2">
+      <v-card-title class="text-emerald-800">Upcoming Groceries</v-card-title>
       <v-card-text>
-        <h3 class="text-lg text-indigo-800">Imperfect Foods</h3>
-        <p class="text-base">{{ imperfectFoodsText }}</p>
+        <h3 class="text-lg mx-4">Imperfect Foods</h3>
+        <p class="text-base mx-4">{{ imperfectFoodsText }}</p>
       </v-card-text>
       <v-card-actions v-if="buttonText">
         <a href="https://www.imperfectfoods.com/shopping?"
