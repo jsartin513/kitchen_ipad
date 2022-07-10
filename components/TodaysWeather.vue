@@ -23,6 +23,11 @@
         </div>
       </v-card-text>
       <v-card-text v-if="showFailureMessage"> Weather Load Failed </v-card-text>
+      <v-actions
+        ><v-btn
+          ><a href="https://www.wunderground.com/">Open Forecast</a></v-btn
+        ></v-actions
+      >
     </v-card>
   </div>
 </template>
@@ -108,7 +113,7 @@ export default {
     loadWeather() {
       const getTimelineURL = 'https://api.tomorrow.io/v4/timelines'
       const apiKey = 'CpjpjcI1rFh1qtWECG58JE6lzMkAnBVP' // TODO: Get a new key and be secureish. That said, it's a GET request...
-      const location = '42.3928182,-71.099294' // TODO: get from browser location
+      const location = '42.388000,-71.118198' // TODO: get from browser location
       const units = 'imperial'
       const timesteps = 'current'
       const fields = ['temperature', 'temperatureApparent', 'weatherCode']
