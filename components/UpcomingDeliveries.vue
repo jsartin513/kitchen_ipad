@@ -39,7 +39,7 @@ export default {
       } else if (this.isUpcomingImperfectFoods) {
         return 'The next order is coming on Friday.'
       } else {
-        return 'No upcoming order.'
+        return 'Next order can be edited on Monday.'
       }
     },
     canUpdateImperfectFoods() {

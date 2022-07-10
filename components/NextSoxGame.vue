@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-card class="w-full h-full" elevation="2">
-      <v-card-title class="text-emerald-800">Next red sox game</v-card-title>
+      <v-card-title class="text-emerald-800">Next red sox tickets</v-card-title>
       <v-card-text class="mx-4">
         {{ nextSoxGameText }}
       </v-card-text>
