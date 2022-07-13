@@ -26,7 +26,7 @@
       <v-actions
         ><v-btn
           ><a href="https://www.wunderground.com/" target="_blank"
-            >Open Forecast (new tab)</a
+            >Deatiled Forecast (new tab)</a
           ></v-btn
         ></v-actions
       >

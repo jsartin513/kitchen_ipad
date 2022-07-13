@@ -48,10 +48,10 @@ export default {
         return true
       }
       if (dayOfWeek === 3) {
-        return this.currentNow.getHours() <= 12
+        return this.currentNow.getHours() <= 11 // 11:59am
       }
       if (dayOfWeek === 1) {
-        return this.currentNow.getHours() >= 13
+        return this.currentNow.getHours() >= 13 // 1:00pm
       }
 
       return false
@@ -62,10 +62,10 @@ export default {
         return true
       }
       if (dayOfWeek === 3) {
-        return this.currentNow.getHours() >= 12
+        return this.currentNow.getHours() >= 12 // 12:00pm
       }
       if (dayOfWeek === 5) {
-        return this.currentNow.getHours() <= 17
+        return this.currentNow.getHours() <= 17 // 5:59pm, but should find a way to manunally update this. Maybe a button? and persistent state
       }
 
       return false
