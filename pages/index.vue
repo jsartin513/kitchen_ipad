@@ -7,10 +7,10 @@
       <div class="grid gap-4 grid-cols-2 px-8">
         <UpcomingDeliveries />
         <TodaysWeather />
-        <FoodInFridge />
-        <FunInfo />
-        <NextSoxGame />
         <TrashDay />
+        <FoodInFridge />
+        <NextSoxGame />
+        <FunInfo />
       </div>
     </div>
   </v-main>
