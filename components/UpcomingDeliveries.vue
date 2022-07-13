@@ -7,7 +7,7 @@
         <p class="text-base mx-4">{{ imperfectFoodsText }}</p>
       </v-card-text>
       <v-card-actions v-if="buttonText">
-        <a href="https://www.imperfectfoods.com/shopping?"
+        <a href="https://www.imperfectfoods.com/shopping?" target="_blank">
           ><v-btn>{{ buttonText }}</v-btn></a
         >
       </v-card-actions>

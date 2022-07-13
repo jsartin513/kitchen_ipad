@@ -23,12 +23,12 @@
         </div>
       </v-card-text>
       <v-card-text v-if="showFailureMessage"> Weather Load Failed </v-card-text>
-      <v-actions
+      <v-card-actions
         ><v-btn
           ><a href="https://www.wunderground.com/" target="_blank"
-            >Deatiled Forecast (new tab)</a
+            >Detailed Forecast</a
           ></v-btn
-        ></v-actions
+        ></v-card-actions
       >
     </v-card>
   </div>
@@ -40,6 +40,7 @@ export default {
   props: {},
   data() {
     return {
+      currentLocation: null,
       weather: null,
       weatherLoaded: false,
       weatherLoadFailed: false,
@@ -48,7 +49,7 @@ export default {
   computed: {
     currentTemperature() {
       // TODO: put some caching in place and re-enable this
-      return this.weather ? Math.trunc(this.weather.temperature) : 89
+      return this.weather ? Math.trunc(this.weather.temperature) : null
     },
     showWeather() {
       return this.weatherLoaded && !this.weatherLoadFailed
@@ -109,13 +110,15 @@ export default {
     },
   },
   created() {
-    this.loadWeather()
+    this.getLocationAndLoadWeather()
   },
   methods: {
     loadWeather() {
       const getTimelineURL = 'https://api.tomorrow.io/v4/timelines'
       const apiKey = 'CpjpjcI1rFh1qtWECG58JE6lzMkAnBVP' // TODO: Get a new key and be secureish. That said, it's a GET request...
-      const location = '42.388000,-71.118198' // TODO: get from browser location
+      const location = this.currentLocation
+        ? this.currentLocation
+        : '42.388000,-71.118198'
       const units = 'imperial'
       const timesteps = 'current'
       const fields = ['temperature', 'temperatureApparent', 'weatherCode']
@@ -131,6 +134,21 @@ export default {
           console.log(error)
           this.weatherLoadFailed = true
         })
+    },
+    getLocationAndLoadWeather() {
+      if (window.navigator.geolocation) {
+        window.navigator.geolocation.getCurrentPosition((position) => {
+          this.currentLocation = `${position.coords.latitude},${position.coords.longitude}`
+          this.loadWeather()
+        })
+      } else {
+        /* eslint-disable no-console */
+        console.log(
+          'Geolocation is not supported by this browser. Using Fallback'
+        )
+        this.currentLocation = '42.388000,-71.118198'
+        this.loadWeather()
+      }
     },
   },
 }
