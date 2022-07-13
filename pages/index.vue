@@ -10,6 +10,7 @@
         <FoodInFridge />
         <FunInfo />
         <NextSoxGame />
+        <TrashDay />
       </div>
     </div>
   </v-main>
@@ -21,6 +22,7 @@ import TodaysWeather from '~/components/TodaysWeather.vue'
 import FunInfo from '~/components/FunInfo.vue'
 import FoodInFridge from '~/components/FoodInFridge.vue'
 import NextSoxGame from '~/components/NextSoxGame.vue'
+import TrashDay from '~/components/TrashDay.vue'
 
 export default {
   name: 'IndexPage',
@@ -30,6 +32,7 @@ export default {
     FunInfo,
     FoodInFridge,
     NextSoxGame,
+    TrashDay,
   },
 }
 </script>
