@@ -9,6 +9,8 @@
           <li>Fresh fruit (pears! apples! peaches!)</li>
           <li>Broccoli Rice</li>
           <li>Meat in the freezer</li>
+          <li>Canned meat</li>
+          <li>Brown rice</li>
         </ul></v-card-text
       >
     </v-card>

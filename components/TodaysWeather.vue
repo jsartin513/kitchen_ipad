@@ -24,10 +24,8 @@
       </v-card-text>
       <v-card-text v-if="showFailureMessage"> Weather Load Failed </v-card-text>
       <v-card-actions
-        ><v-btn
-          ><a href="https://www.wunderground.com/" target="_blank"
-            >Detailed Forecast</a
-          ></v-btn
+        ><a href="https://www.wunderground.com/" target="_blank"
+          ><v-btn class="mx-4">Detailed Forecast</v-btn></a
         ></v-card-actions
       >
     </v-card>
