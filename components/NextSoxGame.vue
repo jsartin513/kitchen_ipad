@@ -46,7 +46,7 @@ export default {
           const diff = gameDate - today
           const oneDay = 1000 * 60 * 60 * 24
           nextGameFound = true
-          daysTil = Math.floor(diff / oneDay)
+          daysTil = Math.ceil(diff / oneDay)
         }
       })
       return daysTil

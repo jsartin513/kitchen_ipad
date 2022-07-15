@@ -11,8 +11,11 @@
         </div>
       </v-card-text>
       <v-card-text v-else>
-        <div class="text-center text-xl">
+        <div :class="`${showNumberDays ? 'text-center' : ''} text-xl`">
           {{ todayText }}
+        </div>
+        <div v-if="showYardWaste" class="text-xl">
+          {{ yardWasteText }}
         </div>
       </v-card-text>
     </v-card>
@@ -29,6 +32,9 @@ export default {
     }
   },
   computed: {
+    showYardWaste() {
+      return this.currentDayOfWeek < 5 // This checks the past sunday, so only show between sun and thurs
+    },
     showNumberDays() {
       return this.daysTil > 1
     },
@@ -39,10 +45,36 @@ export default {
     currentDayOfWeek() {
       return this.currentNow.getDay()
     },
-    isHolidayWeek() {
-      const pastSunday = new Date(
+    pastSunday() {
+      return new Date(
         this.currentNow - this.currentDayOfWeek * 24 * 60 * 60 * 1000
       )
+    },
+    isYardWasteWeek() {
+      const sundayMonth = this.pastSunday.getMonth()
+      const sundayDate = this.pastSunday.getDate()
+      if (sundayMonth === 6) {
+        return sundayDate === 17 || sundayDate === 31 // includes first week in august
+      } else if (sundayMonth === 7) {
+        return sundayDate === 14 || sundayDate === 28
+      } else if (sundayMonth === 8) {
+        return sundayDate === 11 || sundayDate === 25
+      } else if (sundayMonth === 9) {
+        return sundayDate !== 2 // All but the first week
+      } else if (sundayMonth === 10) {
+        // all of november
+        return true
+      } else if (sundayMonth === 11) {
+        return sundayDate === 4 // week of december 4
+      }
+      return false
+    },
+    yardWasteText() {
+      return this.isYardWasteWeek
+        ? 'Includes yard waste'
+        : 'Does not include yard waste'
+    },
+    isHolidayWeek() {
       const sundayHolidayDates = [
         { month: 8, day: 4 },
         { month: 9, day: 9 },
@@ -52,8 +84,8 @@ export default {
       if (
         sundayHolidayDates.some((holiday) => {
           return (
-            holiday.month === pastSunday.getMonth() &&
-            holiday.day === pastSunday.getDate()
+            holiday.month === this.pastSunday.getMonth() &&
+            holiday.day === this.pastSunday.getDate()
           )
         })
       ) {
