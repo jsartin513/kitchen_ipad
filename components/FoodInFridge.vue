@@ -6,7 +6,7 @@
           <div class="col-span-7">Make effort to eat...</div>
           <div class="text-right">
             <v-icon
-              v-if="totalPanels > 1"
+              v-if="!expanded"
               aria-label="Expand"
               role="img"
               aria-hidden="false"
@@ -15,7 +15,7 @@
               mdi-arrow-expand-all
             </v-icon>
             <v-icon
-              v-if="totalPanels == 1"
+              v-if="expanded"
               aria-label="Collapse"
               role="img"
               aria-hidden="false"
@@ -25,8 +25,8 @@
           </div>
         </div></v-card-title
       >
-      <v-card-text class="mx-4"
-        ><ul class="list-disc">
+      <v-card-text :class="`mx-4 ${expanded ? 'text-xl' : 'text-sm'}`">
+        <ul :class="`list-disc ${expanded ? 'text-xl' : 'text-sm'}`">
           <li>Fresh fruit (pears! apples! peaches!)</li>
           <li>Broccoli Rice</li>
           <li>Meat in the freezer</li>
@@ -45,6 +45,12 @@ export default {
     totalPanels: {
       type: Number,
       default: 6,
+    },
+  },
+  computed: {
+    expanded() {
+      // Why isn't this a prop? I might have more use for the total number of panels later
+      return this.totalPanels === 1
     },
   },
 }
