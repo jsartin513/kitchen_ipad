@@ -33,11 +33,11 @@
           <li>Canned meat</li>
           <li>Brown rice</li>
         </ul>
-        <!-- <ul :class="`list-disc ${expanded ? 'text-xl' : 'text-sm'}`">
-          <li v-for="foodItem in someState.foodList" :key="foodItem">
+        <ul :class="`list-disc ${expanded ? 'text-xl' : 'text-sm'}`">
+          <li v-for="foodItem in foodStore.foodList" :key="foodItem">
             {{ foodItem }}
           </li>
-        </ul> -->
+        </ul>
       </v-card-text>
     </v-card>
   </div>
