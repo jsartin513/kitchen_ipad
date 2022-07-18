@@ -1,4 +1,6 @@
-export default {
+import { defineNuxtConfig } from '@nuxt/bridge'
+
+export default defineNuxtConfig({
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
   ssr: false,
@@ -38,7 +40,6 @@ export default {
         },
       },
     ],
-    '@nuxtjs/composition-api/module',
     '@pinia/nuxt',
   ],
 
@@ -72,4 +73,4 @@ export default {
   build: {},
 
   devServerHandlers: [],
-}
+})
