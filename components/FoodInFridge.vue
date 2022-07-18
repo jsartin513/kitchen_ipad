@@ -45,7 +45,7 @@
 
 <script>
 import { mapStores } from 'pinia'
-import { useFoodStore } from '~/store/food'
+import { useFoodStore } from '~/store/foodInHouse'
 
 export default {
   name: 'FoodInFridge',
