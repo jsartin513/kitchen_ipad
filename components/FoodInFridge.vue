@@ -32,13 +32,21 @@
           <li>Meat in the freezer</li>
           <li>Canned meat</li>
           <li>Brown rice</li>
-        </ul></v-card-text
-      >
+        </ul>
+        <!-- <ul :class="`list-disc ${expanded ? 'text-xl' : 'text-sm'}`">
+          <li v-for="foodItem in someState.foodList" :key="foodItem">
+            {{ foodItem }}
+          </li>
+        </ul> -->
+      </v-card-text>
     </v-card>
   </div>
 </template>
 
 <script>
+import { mapStores } from 'pinia'
+import { useFoodStore } from '~/store/food'
+
 export default {
   name: 'FoodInFridge',
   props: {
@@ -52,6 +60,7 @@ export default {
       // Why isn't this a prop? I might have more use for the total number of panels later
       return this.totalPanels === 1
     },
+    ...mapStores(useFoodStore),
   },
 }
 </script>
