@@ -1,8 +1,11 @@
 <template>
   <v-main>
     <div class="bg-indigo-200 h-full">
-      <h1 class="px-16 py-8 text-3xl text-center text-emerald-800">
-        What's going on?
+      <h1
+        class="grid grid-cols-2 px-8 mx-8 py-4 mb-4 text-3xl text-emerald-800 border-b"
+      >
+        <div>What's going on?</div>
+        <div class="text-right">{{ todaysDate }}</div>
       </h1>
       <div :class="`grid gap-4 ${colClass} px-8`">
         <UpcomingDeliveries v-if="showUpcomingDeliveries" />
@@ -66,6 +69,9 @@ export default {
     },
     showTrashDay() {
       return this.selectedPanels.includes('TRASH')
+    },
+    todaysDate() {
+      return new Date().toDateString()
     },
   },
   methods: {

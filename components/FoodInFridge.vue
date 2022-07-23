@@ -27,13 +27,6 @@
       >
       <v-card-text :class="`mx-4 ${expanded ? 'text-xl' : 'text-sm'}`">
         <ul :class="`list-disc ${expanded ? 'text-xl' : 'text-sm'}`">
-          <li>Fresh fruit (pears! apples! peaches!)</li>
-          <li>Broccoli Rice</li>
-          <li>Meat in the freezer</li>
-          <li>Canned meat</li>
-          <li>Brown rice</li>
-        </ul>
-        <ul :class="`list-disc ${expanded ? 'text-xl' : 'text-sm'}`">
           <li v-for="foodItem in foodStore.foodList" :key="foodItem">
             {{ foodItem }}
           </li>
