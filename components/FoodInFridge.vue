@@ -31,6 +31,13 @@
             {{ foodItem }}
           </li>
         </ul>
+        <v-combobox
+          v-if="expanded"
+          :items="foodNotInList"
+          hide-selected
+          @change="addFoodToList"
+        >
+        </v-combobox>
       </v-card-text>
     </v-card>
   </div>
@@ -53,7 +60,20 @@ export default {
       // Why isn't this a prop? I might have more use for the total number of panels later
       return this.totalPanels === 1
     },
+    foodNotInList() {
+      return this.foodStore.allFoods.filter(
+        (food) => !this.foodStore.foodList.includes(food)
+      )
+    },
     ...mapStores(useFoodStore),
+  },
+  methods: {
+    addFoodToList(food) {
+      console.log('starting to add food to list')
+      console.log(food)
+      this.foodStore.addFoodToList(food, this.foodStore.foodList)
+      console.log('ending to add food to list from component')
+    },
   },
 }
 </script>
