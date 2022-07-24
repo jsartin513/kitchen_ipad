@@ -33,6 +33,7 @@
         </ul>
         <v-combobox
           v-if="expanded"
+          v-model="selectItem"
           :items="foodNotInList"
           hide-selected
           @change="addFoodToList"
@@ -55,6 +56,11 @@ export default {
       default: 6,
     },
   },
+  data() {
+    return {
+      selectItem: '',
+    }
+  },
   computed: {
     expanded() {
       // Why isn't this a prop? I might have more use for the total number of panels later
@@ -73,6 +79,10 @@ export default {
       console.log(food)
       this.foodStore.addFoodToList(food, this.foodStore.foodList)
       console.log('ending to add food to list from component')
+      setTimeout(() => {
+        this.selectItem = ''
+      }, 300)
+      console.log('cleared')
     },
   },
 }
