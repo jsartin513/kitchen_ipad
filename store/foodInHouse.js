@@ -1,10 +1,11 @@
 import { defineStore } from 'pinia'
+import { useStorage } from '@vueuse/core'
 
 export const useFoodStore = defineStore({
   id: 'food',
   state: () => {
     return {
-      foodList: ['meat', 'brown rice'],
+      foodList: useStorage('foodList', ['meat', 'brown rice']),
       allFoods: [
         'pears',
         'apples',
@@ -17,10 +18,10 @@ export const useFoodStore = defineStore({
     }
   },
   actions: {
+    // TODO: This seems like a funky way to remove the item from the list
     addFoodToList: (food, listInStore) => {
-      console.log(food)
       listInStore.push(food)
     },
   },
-  persist: true, // defaults to LocalStorage
+  persist: true,
 })

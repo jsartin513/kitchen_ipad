@@ -75,14 +75,10 @@ export default {
   },
   methods: {
     addFoodToList(food) {
-      console.log('starting to add food to list')
-      console.log(food)
       this.foodStore.addFoodToList(food, this.foodStore.foodList)
-      console.log('ending to add food to list from component')
       setTimeout(() => {
         this.selectItem = ''
       }, 300)
-      console.log('cleared')
     },
   },
 }
