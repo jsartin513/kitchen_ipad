@@ -26,9 +26,17 @@
         </div></v-card-title
       >
       <v-card-text :class="`mx-4 ${expanded ? 'text-xl' : 'text-sm'}`">
-        <ul :class="`list-disc ${expanded ? 'text-xl' : 'text-sm'}`">
+        <ul :class="listClass">
           <li v-for="foodItem in foodStore.foodList" :key="foodItem">
             {{ foodItem }}
+            <v-icon
+              v-if="expanded"
+              aria-label="Remove"
+              role="img"
+              aria-hidden="false"
+              @click="removeItem(foodItem)"
+              >mdi-delete</v-icon
+            >
           </li>
         </ul>
         <v-combobox
@@ -66,6 +74,13 @@ export default {
       // Why isn't this a prop? I might have more use for the total number of panels later
       return this.totalPanels === 1
     },
+    listClass() {
+      if (this.expanded) {
+        return 'text-xl list-none grid grid-cols-2'
+      } else {
+        return 'text-sm list-disc'
+      }
+    },
     foodNotInList() {
       return this.foodStore.allFoods.filter(
         (food) => !this.foodStore.foodList.includes(food)
@@ -79,6 +94,9 @@ export default {
       setTimeout(() => {
         this.selectItem = ''
       }, 300)
+    },
+    removeItem(food) {
+      this.foodStore.removeFoodFromList(food, this.foodStore.foodList)
     },
   },
 }

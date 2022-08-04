@@ -22,6 +22,9 @@ export const useFoodStore = defineStore({
     addFoodToList: (food, listInStore) => {
       listInStore.push(food)
     },
+    removeFoodFromList: (food, listInStore) => {
+      listInStore.splice(listInStore.indexOf(food), 1)
+    },
   },
   persist: true,
 })
