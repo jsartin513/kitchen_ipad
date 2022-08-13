@@ -44,7 +44,7 @@ export default {
   },
   data() {
     return {
-      selectedPanels: ['FOOD'],
+      selectedPanels: ['DELIVERIES', 'WEATHER', 'TRASH', 'FOOD', 'SOX', 'FUN'],
     }
   },
   computed: {
