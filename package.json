@@ -23,7 +23,7 @@
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/composition-api": "^0.33.0",
     "@nuxtjs/pwa": "^3.3.5",
-    "@pinia/nuxt": "^0.3.0",
+    "@pinia/nuxt": "^0.4.0",
     "@vueuse/core": "^9.1.0",
     "core-js": "^3.19.3",
     "nuxt-edge": "latest",
@@ -52,7 +52,7 @@
     "husky": "^7.0.4",
     "jest": "^27.4.4",
     "lint-staged": "^13.0.3",
-    "postcss": "^8.4.4",
+    "postcss": "^8.4.16",
     "prettier": "^2.5.1",
     "vue-jest": "^3.0.4"
   }
