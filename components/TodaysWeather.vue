@@ -33,12 +33,14 @@
 </template>
 
 <script>
+import { useStorage } from '@vueuse/core'
+
 export default {
   name: 'TodaysWeather',
   props: {},
   data() {
     return {
-      currentLocation: null,
+      currentLocation: useStorage('currentLocation', null),
       weather: null,
       weatherLoaded: false,
       weatherLoadFailed: false,
@@ -134,7 +136,9 @@ export default {
         })
     },
     getLocationAndLoadWeather() {
-      if (window.navigator.geolocation) {
+      if (this.currentLocation != null) {
+        this.loadWeather()
+      } else if (window.navigator.geolocation) {
         window.navigator.geolocation.getCurrentPosition((position) => {
           this.currentLocation = `${position.coords.latitude},${position.coords.longitude}`
           this.loadWeather()
