@@ -18,6 +18,7 @@
           @collapse="clickOutOfPanel()"
         />
         <NextSoxGame v-if="showNextSoxGame" />
+        <ThreeDPrinter v-if="show3DPrinter" />
         <FunInfo v-if="showFunInfo" />
       </div>
     </div>
@@ -25,6 +26,7 @@
 </template>
 
 <script>
+import ThreeDPrinter from '~/components/3DPrinter'
 import UpcomingDeliveries from '~/components/UpcomingDeliveries.vue'
 import TodaysWeather from '~/components/TodaysWeather.vue'
 import FunInfo from '~/components/FunInfo.vue'
@@ -41,10 +43,19 @@ export default {
     FoodInFridge,
     NextSoxGame,
     TrashDay,
+    ThreeDPrinter,
   },
   data() {
     return {
-      selectedPanels: ['DELIVERIES', 'WEATHER', 'TRASH', 'FOOD', 'SOX', 'FUN'],
+      selectedPanels: [
+        'DELIVERIES',
+        'WEATHER',
+        'TRASH',
+        'FOOD',
+        'SOX',
+        '3DPRINTER',
+        'FUN',
+      ],
     }
   },
   computed: {
@@ -70,6 +81,9 @@ export default {
     showTrashDay() {
       return this.selectedPanels.includes('TRASH')
     },
+    show3DPrinter() {
+      return this.selectedPanels.includes('3DPRINTER')
+    },
     todaysDate() {
       return new Date().toDateString()
     },
@@ -89,6 +103,7 @@ export default {
           'FOOD',
           'SOX',
           'TRASH',
+          '3DPRINTER',
         ]
       })
     },
