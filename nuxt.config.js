@@ -1,4 +1,4 @@
-import { defineNuxtConfig } from '@nuxt/bridge'
+import { defineNuxtConfig } from 'nuxt'
 
 export default defineNuxtConfig({
   // Target: https://go.nuxtjs.dev/config-target
