@@ -59,7 +59,7 @@ export default {
   },
   methods: {
     getPrinterStatus() {
-      const printUrl = 'http://maker.local/api/printer'
+      const printUrl = 'https://maker.local/api/printer'
       const apiKey = this.$config.public.printApiKey
       const apiParams = `?apikey=${apiKey}`
       fetch(printUrl + apiParams)
