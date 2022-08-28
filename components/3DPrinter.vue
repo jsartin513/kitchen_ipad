@@ -36,7 +36,7 @@ export default {
         return 'Loading...'
       }
       if (this.printStatusLoadFailed) {
-        return 'Failed to load printer status'
+        return 'Cannot load printer status from deployed website :) '
       }
       return 'Current status: ' + this.printerStatus.text
     },
