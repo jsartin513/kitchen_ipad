@@ -11,6 +11,7 @@ updates:
       - jdoherty513
     assignees:
       - jdoherty513
+    target-branch: 'dependabot-base-branch'
     commit-message:
       prefix: fix
       prefix-development: chore
@@ -26,6 +27,7 @@ updates:
       - jdoherty513
     assignees:
       - jdoherty513
+    target-branch: 'dependabot-base-branch'
     commit-message:
       prefix: fix
       prefix-development: chore
