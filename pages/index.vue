@@ -11,6 +11,7 @@
         <UpcomingDeliveries v-if="showUpcomingDeliveries" />
         <TodaysWeather v-if="showTodaysWeather" />
         <TrashDay v-if="showTrashDay" />
+        <GamingDeadlines v-if="showGamingDeadlines" />
         <FoodInFridge
           v-if="showFoodInFridge"
           :total-panels="selectedPanels.length"
@@ -33,6 +34,7 @@ import FunInfo from '~/components/FunInfo.vue'
 import FoodInFridge from '~/components/FoodInFridge.vue'
 import NextSoxGame from '~/components/NextSoxGame.vue'
 import TrashDay from '~/components/TrashDay.vue'
+import GamingDeadlines from '~/components/GamingDeadlines.vue'
 
 export default {
   name: 'IndexPage',
@@ -44,12 +46,14 @@ export default {
     NextSoxGame,
     TrashDay,
     ThreeDPrinter,
+    GamingDeadlines,
   },
   data() {
     return {
       selectedPanels: [
         'DELIVERIES',
         'WEATHER',
+        'DEADLINES',
         'TRASH',
         'FOOD',
         'SOX',
@@ -84,6 +88,9 @@ export default {
     show3DPrinter() {
       return this.selectedPanels.includes('3DPRINTER')
     },
+    showGamingDeadlines() {
+      return this.selectedPanels.includes('DEADLINES')
+    },
     todaysDate() {
       return new Date().toDateString()
     },
@@ -99,6 +106,7 @@ export default {
         this.selectedPanels = [
           'DELIVERIES',
           'WEATHER',
+          'DEADLINES',
           'FUN',
           'FOOD',
           'SOX',
