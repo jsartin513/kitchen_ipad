@@ -9,6 +9,17 @@
         <div><strong>Survivor Pool:</strong> {{ survivorPoolText }}</div>
         <div><strong>FACT Fantasy:</strong> {{ factFantasyText }}</div>
       </v-card-text>
+      <v-card-actions
+        ><a
+          href="https://www.runyourpool.com/dashboard/my-pools"
+          target="_blank"
+          ><v-btn class="mx-4">Survivor League</v-btn></a
+        ><a
+          href="https://fantasy.espn.com/football/league?leagueId=1308690"
+          target="_blank"
+          ><v-btn class="mx-4">FACT League</v-btn></a
+        ></v-card-actions
+      >
     </v-card>
   </div>
 </template>
