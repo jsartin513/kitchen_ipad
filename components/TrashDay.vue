@@ -4,10 +4,11 @@
       <v-card-title class="text-emerald-800">Next trash day</v-card-title>
       <v-card-text v-if="showNumberDays">
         <div class="grid gap-2 grid-cols-2 px-2">
-          <div>Days til trash night:</div>
-          <div class="text-6xl text-center">
-            {{ daysTil }}
-          </div>
+          <DueDate
+            :action-to-take="`taken out`"
+            :due-day="trashDay"
+            :thing-at-that-time="`Trash`"
+          />
         </div>
       </v-card-text>
       <v-card-text v-else>
@@ -23,8 +24,13 @@
 </template>
 
 <script>
+import DueDate from '@/components/ui/DueDate.vue'
+
 export default {
   name: 'TrashDay',
+  components: {
+    DueDate,
+  },
   props: {},
   data() {
     return {
@@ -94,10 +100,12 @@ export default {
         return false
       }
     },
+    trashDay() {
+      return this.isHolidayWeek ? 5 : 4 // thursday, unless it's a holiday week
+    },
     daysTil() {
       // TODO: Fix holiday weeks, probably by checking a sunday
-      const trashDay = this.isHolidayWeek ? 5 : 4 // thursday, unless it's a holiday week
-      let daysTil = trashDay - this.currentDayOfWeek
+      let daysTil = this.trashDay - this.currentDayOfWeek
       if (daysTil < 0) {
         daysTil += 7
       }
