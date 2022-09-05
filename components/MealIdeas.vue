@@ -88,6 +88,28 @@
               </li>
             </ul>
           </div>
+          <div class="col-span-3">
+            <div
+              :class="`mx-2 mt-4 font-semibold ${
+                expanded ? 'text-xl' : 'text-med'
+              }`"
+            >
+              Other stuff we can do
+            </div>
+            <ul :class="listClass">
+              <li v-for="meal in specialMeals" :key="meal">
+                {{ meal }}
+                <v-icon
+                  v-if="expanded"
+                  aria-label="Remove"
+                  role="img"
+                  aria-hidden="false"
+                  @click="removeItem(meal)"
+                  >mdi-delete</v-icon
+                >
+              </li>
+            </ul>
+          </div>
         </div>
         <v-combobox
           v-if="expanded"
@@ -144,6 +166,11 @@ export default {
     veggiesInHouse() {
       return this.foodStore.foodInHouse.filter((food) =>
         this.foodStore.veggies.includes(food)
+      )
+    },
+    specialMeals() {
+      return this.foodStore.foodInHouse.filter((food) =>
+        this.foodStore.specialMeals.includes(food)
       )
     },
     foodToAddBackIn() {
