@@ -10,8 +10,14 @@
       <div :class="`grid gap-4 ${colClass} px-8`">
         <UpcomingDeliveries v-if="showUpcomingDeliveries" />
         <TodaysWeather v-if="showTodaysWeather" />
-        <TrashDay v-if="showTrashDay" />
+        <MealIdeas
+          v-if="showMealIdeas"
+          :total-panels="selectedPanels.length"
+          @expand="clickIntoPanel('MEALS')"
+          @collapse="clickOutOfPanel()"
+        />
         <GamingDeadlines v-if="showGamingDeadlines" />
+        <TrashDay v-if="showTrashDay" />
         <FoodInFridge
           v-if="showFoodInFridge"
           :total-panels="selectedPanels.length"
@@ -35,6 +41,7 @@ import FoodInFridge from '~/components/FoodInFridge.vue'
 import NextSoxGame from '~/components/NextSoxGame.vue'
 import TrashDay from '~/components/TrashDay.vue'
 import GamingDeadlines from '~/components/GamingDeadlines.vue'
+import MealIdeas from '~/components/MealIdeas.vue'
 
 export default {
   name: 'IndexPage',
@@ -47,6 +54,7 @@ export default {
     TrashDay,
     ThreeDPrinter,
     GamingDeadlines,
+    MealIdeas,
   },
   data() {
     return {
@@ -59,6 +67,7 @@ export default {
         'SOX',
         '3DPRINTER',
         'FUN',
+        'MEALS',
       ],
     }
   },
@@ -91,6 +100,9 @@ export default {
     showGamingDeadlines() {
       return this.selectedPanels.includes('DEADLINES')
     },
+    showMealIdeas() {
+      return this.selectedPanels.includes('MEALS')
+    },
     todaysDate() {
       return new Date().toDateString()
     },
@@ -112,6 +124,7 @@ export default {
           'SOX',
           'TRASH',
           '3DPRINTER',
+          'MEALS',
         ]
       })
     },
