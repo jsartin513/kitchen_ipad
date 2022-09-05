@@ -1,14 +1,14 @@
 <template>
   <div>
-    <v-card class="w-full h-full" elevation="2">
+    <v-card :class="`w-full {{ collapsed? 'h-8' : 'h-full' }}`" elevation="2">
       <v-card-title class="text-emerald-800"
         >Upcoming Grocery Deliveries</v-card-title
       >
-      <v-card-text>
+      <v-card-text v-if="!collapsed">
         <h3 class="text-lg mx-4">Imperfect Foods</h3>
         <p class="text-base mx-4">{{ imperfectFoodsText }}</p>
       </v-card-text>
-      <v-card-actions v-if="buttonText">
+      <v-card-actions v-if="buttonText && !collapsed">
         <a href="https://www.imperfectfoods.com/shopping?" target="_blank">
           <v-btn class="mx-4">{{ buttonText }}</v-btn></a
         >
@@ -20,7 +20,12 @@
 <script>
 export default {
   name: 'UpcomingDeliveries',
-  props: {},
+  props: {
+    collapsed: {
+      type: Boolean,
+      default: true,
+    },
+  },
   data() {
     return {
       currentNow: null,

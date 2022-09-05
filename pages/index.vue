@@ -8,7 +8,10 @@
         <div class="text-right">{{ todaysDate }}</div>
       </h1>
       <div :class="`grid gap-4 ${colClass} px-8`">
-        <UpcomingDeliveries v-if="showUpcomingDeliveries" />
+        <UpcomingDeliveries
+          v-if="showUpcomingDeliveries"
+          :collapsed="panelState.deliveries === 'COLLAPSED'"
+        />
         <TodaysWeather v-if="showTodaysWeather" />
         <MealIdeas
           v-if="showMealIdeas"
@@ -63,12 +66,21 @@ export default {
         'WEATHER',
         'DEADLINES',
         'TRASH',
-        'FOOD',
         'SOX',
         '3DPRINTER',
         'FUN',
         'MEALS',
       ],
+      panelState: {
+        deliveries: 'COLLAPSED',
+        weather: 'OPEN',
+        deadlines: 'OPEN',
+        trash: 'OPEN',
+        sox: 'OPEN',
+        printer: 'COLLAPSED',
+        fun: 'COLLAPSED',
+        meals: 'OPEN',
+      },
     }
   },
   computed: {
@@ -120,12 +132,21 @@ export default {
           'WEATHER',
           'DEADLINES',
           'FUN',
-          'FOOD',
           'SOX',
           'TRASH',
           '3DPRINTER',
           'MEALS',
         ]
+        this.panelState = {
+          deliveries: 'OPEN',
+          weather: 'OPEN',
+          deadlines: 'OPEN',
+          trash: 'OPEN',
+          sox: 'OPEN',
+          printer: 'COLLAPSED',
+          fun: 'COLLAPSED',
+          meals: 'OPEN',
+        }
       })
     },
   },
