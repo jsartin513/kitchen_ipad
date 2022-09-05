@@ -2,7 +2,7 @@
   <v-main>
     <div class="bg-indigo-200 h-full">
       <h1
-        class="grid grid-cols-2 px-8 mx-8 py-4 mb-4 text-3xl text-emerald-800 border-b"
+        :class="`grid ${colClass} px-8 mx-8 py-4 mb-4 text-3xl text-emerald-800 border-b`"
       >
         <div>What's going on?</div>
         <div class="text-right">{{ todaysDate }}</div>
