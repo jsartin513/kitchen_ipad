@@ -63,12 +63,21 @@ export default {
         'WEATHER',
         'DEADLINES',
         'TRASH',
-        'FOOD',
         'SOX',
         '3DPRINTER',
         'FUN',
         'MEALS',
       ],
+      panelState: {
+        deliveries: 'COLLAPSED',
+        weather: 'OPEN',
+        deadlines: 'OPEN',
+        trash: 'OPEN',
+        sox: 'OPEN',
+        printer: 'COLLAPSED',
+        fun: 'COLLAPSED',
+        meals: 'OPEN',
+      },
     }
   },
   computed: {
@@ -120,12 +129,21 @@ export default {
           'WEATHER',
           'DEADLINES',
           'FUN',
-          'FOOD',
           'SOX',
           'TRASH',
           '3DPRINTER',
           'MEALS',
         ]
+        this.panelState = {
+          deliveries: 'OPEN',
+          weather: 'OPEN',
+          deadlines: 'OPEN',
+          trash: 'OPEN',
+          sox: 'OPEN',
+          printer: 'COLLAPSED',
+          fun: 'COLLAPSED',
+          meals: 'OPEN',
+        }
       })
     },
   },

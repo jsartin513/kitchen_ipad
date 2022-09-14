@@ -30,7 +30,9 @@
         <div class="grid grid-cols-3">
           <div>
             <div
-              :class="`mx-2 font-semibold ${expanded ? 'text-xl' : 'text-med'}`"
+              :class="`mx-2 font-semibold ${
+                expanded ? 'text-xl' : 'text-base'
+              }`"
             >
               Protein
             </div>
@@ -50,7 +52,9 @@
           </div>
           <div>
             <div
-              :class="`mx-2 font-semibold ${expanded ? 'text-xl' : 'text-med'}`"
+              :class="`mx-2 font-semibold ${
+                expanded ? 'text-xl' : 'text-base'
+              }`"
             >
               Starch
             </div>
@@ -70,7 +74,9 @@
           </div>
           <div>
             <div
-              :class="`mx-2 font-semibold ${expanded ? 'text-xl' : 'text-med'}`"
+              :class="`mx-2 font-semibold ${
+                expanded ? 'text-xl' : 'text-base'
+              }`"
             >
               Veggie
             </div>
@@ -91,7 +97,7 @@
           <div class="col-span-3">
             <div
               :class="`mx-2 mt-4 font-semibold ${
-                expanded ? 'text-xl' : 'text-med'
+                expanded ? 'text-xl' : 'text-base'
               }`"
             >
               Other stuff we can do
