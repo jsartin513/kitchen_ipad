@@ -59,21 +59,42 @@ export default {
       return this.getText(this.collegePoolDay, this.collegePoolTimeHours)
     },
     factFantasyText() {
-      if (this.currentNow.getMonth() < 8) {
-        return 'Draft is 9:15 on Labor Day (Monday, 9/5)'
-      } else if (
-        this.currentNow.getMonth() === 8 &&
-        this.currentNow.getDate() <= 4
+      const dayOfWeek = this.currentNow.getDay()
+      if (dayOfWeek === 2) {
+        return 'Make waiver pickups.'
+      }
+      if (
+        dayOfWeek === 3 ||
+        (dayOfWeek === 4 && this.currentNow.getHours() < 20)
       ) {
-        return `Draft is 9:15 on Labor Day (Monday, 9/5) in ${
-          4 - this.currentNow.getDate()
-        } days`
-      } else if (
-        this.currentNow.getMonth() === 8 &&
-        this.currentNow.getDate() === 5
+        return 'Review waiver pickups, make more pickups and set initial lineup!'
+      }
+      if (
+        dayOfWeek === 5 ||
+        dayOfWeek === 6 ||
+        (dayOfWeek === 4 && this.currentNow.getHours() >= 20)
       ) {
-        return `Draft is 9:15 TONIGHT!`
-      } else return `Draft has passed - make picks for Thursdays and Sundays!`
+        return 'Continue picking up players and setting lineup'
+      }
+      if (dayOfWeek === 0) {
+        if (this.currentNow.getHours() < 13) {
+          return 'Set lineup by 1PM!'
+        } else if (this.currentNow.getHours() < 20) {
+          // 8PM
+          return 'Continue setting lineup...'
+        } else {
+          return 'Check again tomorrow!'
+        }
+      }
+      if (dayOfWeek === 1) {
+        if (this.currentNow.getHours() < 20) {
+          return 'Make any changes for tonights game, if applicable'
+        } else {
+          return 'Research for next week!'
+        }
+      }
+
+      return false
     },
   },
   created() {

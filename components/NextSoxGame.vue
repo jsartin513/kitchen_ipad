@@ -21,13 +21,14 @@ export default {
         { month: 7, day: 9 },
         { month: 7, day: 12 },
         { month: 8, day: 2 },
+        { month: 9, day: 4 },
       ],
     }
   },
   computed: {
     nextSoxGameText() {
       if (this.daysTillNextSoxGame === null) {
-        return 'No next Sox game.'
+        return 'Nothing else this year'
       } else if (this.daysTillNextSoxGame === 0) {
         return 'Today!'
       } else if (this.daysTillNextSoxGame === 1) {

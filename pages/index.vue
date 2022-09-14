@@ -8,10 +8,7 @@
         <div class="text-right">{{ todaysDate }}</div>
       </h1>
       <div :class="`grid gap-4 ${colClass} px-8`">
-        <UpcomingDeliveries
-          v-if="showUpcomingDeliveries"
-          :collapsed="panelState.deliveries === 'COLLAPSED'"
-        />
+        <UpcomingDeliveries v-if="showUpcomingDeliveries" />
         <TodaysWeather v-if="showTodaysWeather" />
         <MealIdeas
           v-if="showMealIdeas"

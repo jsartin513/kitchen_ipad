@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card :class="`w-full {{ collapsed? 'h-8' : 'h-full' }}`" elevation="2">
+    <v-card :class="`w-full {{ collapsed ? 'h-8' : 'h-full' }}`" elevation="2">
       <v-card-title class="text-emerald-800"
         >Upcoming Grocery Deliveries</v-card-title
       >
@@ -23,7 +23,7 @@ export default {
   props: {
     collapsed: {
       type: Boolean,
-      default: true,
+      default: false,
     },
   },
   data() {
