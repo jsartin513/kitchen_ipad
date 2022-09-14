@@ -5,9 +5,15 @@
         >Upcoming submissions needed...</v-card-title
       >
       <v-card-text class="mx-4">
-        <div><strong>College Picks:</strong> {{ collegePicksText }}</div>
-        <div><strong>Survivor Pool:</strong> {{ survivorPoolText }}</div>
-        <div><strong>FACT Fantasy:</strong> {{ factFantasyText }}</div>
+        <div class="text-lg">
+          <strong>College Picks:</strong> {{ collegePicksText }}
+        </div>
+        <div class="text-lg">
+          <strong>Survivor Pool:</strong> {{ survivorPoolText }}
+        </div>
+        <div class="text-lg">
+          <strong>FACT Fantasy:</strong> {{ factFantasyText }}
+        </div>
       </v-card-text>
       <v-card-actions
         ><a
