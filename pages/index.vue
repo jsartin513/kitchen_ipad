@@ -2,30 +2,43 @@
   <v-main>
     <div class="bg-indigo-200 h-full">
       <h1
-        :class="`grid ${colClass} px-8 mx-8 py-4 mb-4 text-3xl text-emerald-800 border-b`"
+        :class="`grid grid-cols-2 px-8 mx-8 py-4 mb-4 text-3xl text-emerald-800 border-b`"
       >
         <div>What's going on?</div>
         <div class="text-right">{{ todaysDate }}</div>
       </h1>
-      <div :class="`grid gap-4 ${colClass} px-8`">
-        <UpcomingDeliveries v-if="showUpcomingDeliveries" />
-        <TodaysWeather v-if="showTodaysWeather" />
-        <MealIdeas
-          v-if="showMealIdeas"
-          :total-panels="selectedPanels.length"
-          @expand="clickIntoPanel('MEALS')"
-          @collapse="clickOutOfPanel()"
-        />
-        <GamingDeadlines v-if="showGamingDeadlines" />
-        <TrashDay v-if="showTrashDay" />
+      <div :class="`grid grid-cols-3 gap-4 $ px-8`">
+        <div class="left-col col-span-1">
+          <h3 class="text-xl text-center pb-4 text-gray-800">Upcoming stuff</h3>
+          <div class="grid auto-row-auto gap-y-2">
+            <TrashDay v-if="showTrashDay" />
+            <UpcomingDeliveries v-if="showUpcomingDeliveries" />
+            <NextSoxGame v-if="showNextSoxGame" />
+            <ThreeDPrinter v-if="show3DPrinter" />
+            <GamingDeadlines v-if="showGamingDeadlines" />
+          </div>
+        </div>
+        <div class="right-col col-span-2">
+          <h3 class="text-xl text-center pb-4 text-gray-800">
+            Ideas and stuff
+          </h3>
+          <div class="grid auto-row-auto gap-y-4">
+            <TodaysWeather v-if="showTodaysWeather" />
+            <MealIdeas
+              v-if="showMealIdeas"
+              :total-panels="selectedPanels.length"
+              @expand="clickIntoPanel('MEALS')"
+              @collapse="clickOutOfPanel()"
+            />
+          </div>
+        </div>
+
         <FoodInFridge
           v-if="showFoodInFridge"
           :total-panels="selectedPanels.length"
           @expand="clickIntoPanel('FOOD')"
           @collapse="clickOutOfPanel()"
         />
-        <NextSoxGame v-if="showNextSoxGame" />
-        <ThreeDPrinter v-if="show3DPrinter" />
         <FunInfo v-if="showFunInfo" />
       </div>
     </div>
