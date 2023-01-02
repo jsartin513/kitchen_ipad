@@ -4,6 +4,21 @@ import { useStorage } from '@vueuse/core'
 export const useFoodStore = defineStore({
   id: 'food',
   state: () => {
+    const superEasyMeals = [
+      { name: 'Cauliflower Pizza', img: 'cauliflower_pizza' },
+      { name: 'Frozen Cheeseburger', img: 'frozen_cheeseburger' },
+      { name: 'Chicken and Waffles', img: 'chicken_waffle' },
+    ]
+    // const simpleMeals = ['tacos', 'buffalo chicken mac and cheese']
+
+    const simpleMeals = [
+      { name: 'Tacos', img: 'tacos' },
+      {
+        name: 'Buffalo Chicken Mac and Cheese',
+        img: 'buffalo_chicken_mac_and_cheese',
+      },
+    ]
+
     return {
       foodList: useStorage('foodList', ['meat', 'brown rice']),
       allFoods: [
@@ -43,12 +58,17 @@ export const useFoodStore = defineStore({
         'zucchini',
         'squash',
       ],
+      superEasyMeals: [...superEasyMeals],
+      simpleMeals: [...simpleMeals],
       specialMeals: [
-        'cauliflower pizza',
-        'chicken and waffles',
-        'asian sauced chicken',
-        'tacos',
+        ...superEasyMeals.map((meal) => {
+          return meal.name
+        }),
+        ...simpleMeals.map((meal) => {
+          return meal.name
+        }),
       ],
+      fullMeals: [...superEasyMeals, ...simpleMeals],
       foodInHouse: useStorage('foodInHouse', ['brown rice', 'salmon']),
     }
   },
