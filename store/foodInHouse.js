@@ -17,6 +17,27 @@ export const useFoodStore = defineStore({
         name: 'Buffalo Chicken Mac and Cheese',
         img: 'buffalo_chicken_mac_and_cheese',
       },
+      { name: 'Quesadillas', img: 'quesadillas' },
+    ]
+
+    const smallMeals = [
+      { name: 'Peanut Butter and Jelly', img: 'peanut_butter_jelly' },
+      { name: 'Chicken Sandwich', img: 'chicken_sandwich' },
+      { name: 'Pasta', img: 'pasta' },
+      { name: 'Easy Mac', img: 'easy_mac' },
+      { name: 'Soup', img: 'canned_soup' },
+      { name: 'Canned Chili', img: 'canned_chili' },
+    ]
+
+    const healthySnacks = [
+      { name: 'yogurt_with_fruit', img: 'yogurt_fruit' },
+      { name: 'fruit', img: 'fruit' },
+      { name: 'english muffin', img: 'english_muffin' },
+      { name: 'cereal', img: 'cereal' },
+      { name: 'cheese', img: 'cheese' },
+      { name: 'protein_bar', img: 'protein_bar' },
+      { name: 'protein_shake', img: 'protein_shake' },
+      { name: 'smoothie', img: 'smoothie' },
     ]
 
     return {
@@ -69,6 +90,8 @@ export const useFoodStore = defineStore({
         }),
       ],
       fullMeals: [...superEasyMeals, ...simpleMeals],
+      smallMeals: [...smallMeals],
+      healthySnacks: [...healthySnacks],
       foodInHouse: useStorage('foodInHouse', ['brown rice', 'salmon']),
     }
   },
