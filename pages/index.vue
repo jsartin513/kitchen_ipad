@@ -15,6 +15,7 @@
             <UpcomingDeliveries v-if="showUpcomingDeliveries" />
             <ThreeDPrinter v-if="show3DPrinter" />
             <NextSoxGame v-if="showNextSoxGame" />
+            <FunInfo v-if="showFunInfo" />
             <GamingDeadlines v-if="showGamingDeadlines" />
           </div>
         </div>
@@ -29,17 +30,15 @@
               :total-panels="selectedPanels.length"
               @expand="clickIntoPanel('MEALS')"
               @collapse="clickOutOfPanel()"
+            /><FoodInFridge
+              v-if="showFoodInFridge"
+              :total-panels="selectedPanels.length"
+              @expand="clickIntoPanel('FOOD')"
+              @collapse="clickOutOfPanel()"
             />
+            <FoodSlideshow v-if="showFoodSlideshow" />
           </div>
         </div>
-
-        <FoodInFridge
-          v-if="showFoodInFridge"
-          :total-panels="selectedPanels.length"
-          @expand="clickIntoPanel('FOOD')"
-          @collapse="clickOutOfPanel()"
-        />
-        <FunInfo v-if="showFunInfo" />
       </div>
     </div>
   </v-main>
@@ -51,6 +50,7 @@ import UpcomingDeliveries from '~/components/UpcomingDeliveries.vue'
 import TodaysWeather from '~/components/TodaysWeather.vue'
 import FunInfo from '~/components/FunInfo.vue'
 import FoodInFridge from '~/components/FoodInFridge.vue'
+import FoodSlideshow from '~/components/FoodSlideshow.vue'
 import NextSoxGame from '~/components/NextSoxGame.vue'
 import TrashDay from '~/components/TrashDay.vue'
 import GamingDeadlines from '~/components/GamingDeadlines.vue'
@@ -63,6 +63,7 @@ export default {
     TodaysWeather,
     FunInfo,
     FoodInFridge,
+    FoodSlideshow,
     NextSoxGame,
     TrashDay,
     ThreeDPrinter,
@@ -78,7 +79,7 @@ export default {
         'SOX',
         '3DPRINTER',
         'FUN',
-        'MEALS',
+        'FOODSLIDESHOW',
       ],
       panelState: {
         deliveries: 'COLLAPSED',
@@ -88,7 +89,8 @@ export default {
         sox: 'OPEN',
         printer: 'COLLAPSED',
         fun: 'COLLAPSED',
-        meals: 'OPEN',
+        meals: 'COLLAPSED',
+        foodSlideshow: 'OPEN',
       },
     }
   },
@@ -108,6 +110,9 @@ export default {
     },
     showFoodInFridge() {
       return this.selectedPanels.includes('FOOD')
+    },
+    showFoodSlideshow() {
+      return this.selectedPanels.includes('FOODSLIDESHOW')
     },
     showNextSoxGame() {
       return this.selectedPanels.includes('SOX')
@@ -143,7 +148,7 @@ export default {
           'SOX',
           'TRASH',
           '3DPRINTER',
-          'MEALS',
+          'FOODSLIDESHOW',
         ]
         this.panelState = {
           deliveries: 'OPEN',
@@ -153,7 +158,8 @@ export default {
           sox: 'OPEN',
           printer: 'COLLAPSED',
           fun: 'COLLAPSED',
-          meals: 'OPEN',
+          meals: 'COLLAPSED',
+          foodSlideshow: 'OPEN',
         }
       })
     },
