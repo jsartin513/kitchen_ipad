@@ -10,11 +10,11 @@
       <div :class="`grid grid-cols-3 gap-4 $ px-8`">
         <div class="left-col col-span-1">
           <h3 class="text-xl text-center pb-4 text-gray-800">Upcoming stuff</h3>
-          <div class="grid auto-row-auto gap-y-2">
+          <div class="flex flex-col gap-y-2">
             <TrashDay v-if="showTrashDay" />
             <UpcomingDeliveries v-if="showUpcomingDeliveries" />
-            <NextSoxGame v-if="showNextSoxGame" />
             <ThreeDPrinter v-if="show3DPrinter" />
+            <NextSoxGame v-if="showNextSoxGame" />
             <GamingDeadlines v-if="showGamingDeadlines" />
           </div>
         </div>
@@ -22,7 +22,7 @@
           <h3 class="text-xl text-center pb-4 text-gray-800">
             Ideas and stuff
           </h3>
-          <div class="grid auto-row-auto gap-y-4">
+          <div class="flex flex-col gap-y-4">
             <TodaysWeather v-if="showTodaysWeather" />
             <MealIdeas
               v-if="showMealIdeas"
@@ -74,7 +74,6 @@ export default {
       selectedPanels: [
         'DELIVERIES',
         'WEATHER',
-        'DEADLINES',
         'TRASH',
         'SOX',
         '3DPRINTER',
@@ -84,7 +83,7 @@ export default {
       panelState: {
         deliveries: 'COLLAPSED',
         weather: 'OPEN',
-        deadlines: 'OPEN',
+        deadlines: 'COLLAPSED',
         trash: 'OPEN',
         sox: 'OPEN',
         printer: 'COLLAPSED',
@@ -140,7 +139,6 @@ export default {
         this.selectedPanels = [
           'DELIVERIES',
           'WEATHER',
-          'DEADLINES',
           'FUN',
           'SOX',
           'TRASH',
@@ -150,7 +148,7 @@ export default {
         this.panelState = {
           deliveries: 'OPEN',
           weather: 'OPEN',
-          deadlines: 'OPEN',
+          deadlines: 'COLLAPSED',
           trash: 'OPEN',
           sox: 'OPEN',
           printer: 'COLLAPSED',

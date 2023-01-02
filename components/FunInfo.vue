@@ -5,7 +5,7 @@
       <v-card-text>
         <div class="grid gap-2 grid-cols-2 px-2">
           <div>Days since we were asked if we went to college together</div>
-          <div class="text-6xl text-center">
+          <div class="text-4xl text-center">
             {{ daysSince }}
           </div>
         </div>

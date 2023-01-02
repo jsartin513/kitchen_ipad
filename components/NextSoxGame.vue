@@ -28,7 +28,7 @@ export default {
   computed: {
     nextSoxGameText() {
       if (this.daysTillNextSoxGame === null) {
-        return 'Nothing else this year'
+        return 'Games start up again in early April'
       } else if (this.daysTillNextSoxGame === 0) {
         return 'Today!'
       } else if (this.daysTillNextSoxGame === 1) {

@@ -1,9 +1,7 @@
 <template>
   <div>
     <v-card :class="`w-full {{ collapsed ? 'h-8' : 'h-full' }}`" elevation="2">
-      <v-card-title class="text-emerald-800"
-        >Upcoming Grocery Deliveries</v-card-title
-      >
+      <v-card-title class="text-emerald-800">Grocery Deliveries</v-card-title>
       <v-card-text v-if="!collapsed">
         <h3 class="text-lg mx-4">Imperfect Foods</h3>
         <p class="text-base mx-4">{{ imperfectFoodsText }}</p>

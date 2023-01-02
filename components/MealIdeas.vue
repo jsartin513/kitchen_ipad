@@ -26,11 +26,11 @@
         </div></v-card-title
       >
 
-      <v-card-text :class="`mx-4 ${expanded ? 'text-lg' : 'text-sm'}`">
+      <v-card-text :class="`mx-2 ${expanded ? 'text-lg' : 'text-sm'}`">
         <div class="grid grid-cols-3">
           <div>
             <div
-              :class="`mx-2 font-semibold ${
+              :class="`mx-1 font-semibold ${
                 expanded ? 'text-xl' : 'text-base'
               }`"
             >
@@ -52,7 +52,7 @@
           </div>
           <div>
             <div
-              :class="`mx-2 font-semibold ${
+              :class="`mx-1 font-semibold ${
                 expanded ? 'text-xl' : 'text-base'
               }`"
             >
@@ -74,7 +74,7 @@
           </div>
           <div>
             <div
-              :class="`mx-2 font-semibold ${
+              :class="`mx-1 font-semibold ${
                 expanded ? 'text-xl' : 'text-base'
               }`"
             >
@@ -96,7 +96,7 @@
           </div>
           <div class="col-span-3">
             <div
-              :class="`mx-2 mt-4 font-semibold ${
+              :class="`mx-1 mt-4 font-semibold ${
                 expanded ? 'text-xl' : 'text-base'
               }`"
             >
