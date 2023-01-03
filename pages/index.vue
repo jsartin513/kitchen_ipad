@@ -7,8 +7,8 @@
         <div>What's going on?</div>
         <div class="text-right">{{ todaysDate }}</div>
       </h1>
-      <div :class="`grid grid-cols-3 gap-4 $ px-8`">
-        <div class="left-col col-span-1">
+      <div :class="`grid ${colClass} gap-4 $ px-8`">
+        <div :v-if="selectedPanels.length > 1" class="left-col col-span-1">
           <h2 class="text-xl text-center pb-4 text-gray-800">Upcoming stuff</h2>
           <div class="flex flex-col gap-y-2">
             <TrashDay v-if="showTrashDay" />
@@ -36,7 +36,12 @@
               @expand="clickIntoPanel('FOOD')"
               @collapse="clickOutOfPanel()"
             />
-            <FoodSlideshow v-if="showFoodSlideshow" />
+            <FoodSlideshow
+              v-if="showFoodSlideshow"
+              :total-panels="selectedPanels.length"
+              @expand="clickIntoPanel('FOODSLIDESHOW')"
+              @collapse="clickOutOfPanel()"
+            />
           </div>
         </div>
       </div>
@@ -96,7 +101,7 @@ export default {
   },
   computed: {
     colClass() {
-      const columns = this.selectedPanels.length > 1 ? 2 : 1
+      const columns = this.selectedPanels.length > 1 ? 3 : 1
       return `grid-cols-${columns}`
     },
     showUpcomingDeliveries() {
