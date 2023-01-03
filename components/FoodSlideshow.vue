@@ -34,7 +34,7 @@
               aria-label="Left"
               role="img"
               aria-hidden="false"
-              @click="$emit('left')"
+              @click="selectedMealIndex--"
             >
               mdi-arrow-left
             </v-icon>
@@ -46,7 +46,7 @@
               aria-label="Right"
               role="img"
               aria-hidden="false"
-              @click="$emit('right')"
+              @click="selectedMealIndex++"
             >
               mdi-arrow-right
             </v-icon>
@@ -89,15 +89,25 @@ export default {
   },
   data() {
     return {
-      selectedMealType: 'dinner',
-      canSwitchLeft: true,
-      canSwitchRight: true,
+      selectedMealIndex: 1,
     }
   },
   computed: {
     expanded() {
       // Why isn't this a prop? I might have more use for the total number of panels later
       return this.totalPanels === 1
+    },
+    mealTypes() {
+      return ['small meal', 'dinner', 'healthy snack']
+    },
+    canSwitchLeft() {
+      return this.selectedMealIndex > 0
+    },
+    canSwitchRight() {
+      return this.selectedMealIndex < this.mealTypes.length - 1
+    },
+    selectedMealType() {
+      return this.mealTypes[this.selectedMealIndex]
     },
     listClass() {
       if (this.expanded) {
