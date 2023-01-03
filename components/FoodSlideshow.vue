@@ -3,7 +3,7 @@
     <v-card class="w-full h-full" elevation="2">
       <v-card-title class="text-emerald-800"
         ><div class="grid grid-cols-8 w-full">
-          <div class="col-span-7">Need a dinner idea?</div>
+          <div class="col-span-7">Food Ideas</div>
           <div class="text-right">
             <v-icon
               v-if="!expanded"
@@ -27,8 +27,33 @@
       >
 
       <v-card-text :class="`mx-2 ${expanded ? 'text-lg' : 'text-sm'}`">
+        <div class="grid grid-cols-4 pb-2">
+          <div class="text-left">
+            <v-icon
+              v-if="canSwitchLeft"
+              aria-label="Left"
+              role="img"
+              aria-hidden="false"
+              @click="selectedMealIndex--"
+            >
+              mdi-arrow-left
+            </v-icon>
+          </div>
+          <div class="text-lg text-center col-span-2">{{ foodTitle }}</div>
+          <div class="text-right">
+            <v-icon
+              v-if="canSwitchRight"
+              aria-label="Right"
+              role="img"
+              aria-hidden="false"
+              @click="selectedMealIndex++"
+            >
+              mdi-arrow-right
+            </v-icon>
+          </div>
+        </div>
         <div :class="`grid grid-cols-2`">
-          <div v-for="meal in fullMeals" :key="meal.name">
+          <div v-for="meal in foodToShow" :key="meal.name">
             <div
               :class="`mx-1 font-semibold ${
                 expanded ? 'text-xl' : 'text-base'
@@ -63,12 +88,26 @@ export default {
     },
   },
   data() {
-    return {}
+    return {
+      selectedMealIndex: 1,
+    }
   },
   computed: {
     expanded() {
       // Why isn't this a prop? I might have more use for the total number of panels later
       return this.totalPanels === 1
+    },
+    mealTypes() {
+      return ['small meal', 'dinner', 'healthy snack']
+    },
+    canSwitchLeft() {
+      return this.selectedMealIndex > 0
+    },
+    canSwitchRight() {
+      return this.selectedMealIndex < this.mealTypes.length - 1
+    },
+    selectedMealType() {
+      return this.mealTypes[this.selectedMealIndex]
     },
     listClass() {
       if (this.expanded) {
@@ -77,8 +116,21 @@ export default {
         return 'text-sm list-disc'
       }
     },
-    fullMeals() {
-      return this.foodStore.fullMeals
+    foodTitle() {
+      return (
+        this.selectedMealType.charAt(0).toUpperCase() +
+        this.selectedMealType.slice(1) +
+        ' Ideas'
+      )
+    },
+    foodToShow() {
+      if (this.selectedMealType === 'dinner') {
+        return this.foodStore.fullMeals
+      } else if (this.selectedMealType === 'small meal') {
+        return this.foodStore.smallMeals
+      } else {
+        return this.foodStore.healthySnacks
+      }
     },
     foodToAddBackIn() {
       const allMealFood = [...this.foodStore.fullMeals]

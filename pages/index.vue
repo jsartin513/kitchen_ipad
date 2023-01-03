@@ -9,7 +9,7 @@
       </h1>
       <div :class="`grid grid-cols-3 gap-4 $ px-8`">
         <div class="left-col col-span-1">
-          <h3 class="text-xl text-center pb-4 text-gray-800">Upcoming stuff</h3>
+          <h2 class="text-xl text-center pb-4 text-gray-800">Upcoming stuff</h2>
           <div class="flex flex-col gap-y-2">
             <TrashDay v-if="showTrashDay" />
             <UpcomingDeliveries v-if="showUpcomingDeliveries" />
@@ -20,9 +20,9 @@
           </div>
         </div>
         <div class="right-col col-span-2">
-          <h3 class="text-xl text-center pb-4 text-gray-800">
+          <h2 class="text-xl text-center pb-4 text-gray-800">
             Ideas and stuff
-          </h3>
+          </h2>
           <div class="flex flex-col gap-y-4">
             <TodaysWeather v-if="showTodaysWeather" />
             <MealIdeas
