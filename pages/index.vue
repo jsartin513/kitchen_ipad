@@ -13,6 +13,7 @@
           <div class="flex flex-col gap-y-2">
             <TrashDay v-if="showTrashDay" />
             <UpcomingDeliveries v-if="showUpcomingDeliveries" />
+            <ImportantDates v-if="showImportantDates" />
             <ThreeDPrinter v-if="show3DPrinter" />
             <NextSoxGame v-if="showNextSoxGame" />
             <FunInfo v-if="showFunInfo" />
@@ -56,6 +57,7 @@ import TodaysWeather from '~/components/TodaysWeather.vue'
 import FunInfo from '~/components/FunInfo.vue'
 import FoodInFridge from '~/components/FoodInFridge.vue'
 import FoodSlideshow from '~/components/FoodSlideshow.vue'
+import ImportantDates from '~/components/ImportantDates.vue'
 import NextSoxGame from '~/components/NextSoxGame.vue'
 import TrashDay from '~/components/TrashDay.vue'
 import GamingDeadlines from '~/components/GamingDeadlines.vue'
@@ -69,6 +71,7 @@ export default {
     FunInfo,
     FoodInFridge,
     FoodSlideshow,
+    ImportantDates,
     NextSoxGame,
     TrashDay,
     ThreeDPrinter,
@@ -85,6 +88,7 @@ export default {
         '3DPRINTER',
         'FUN',
         'FOODSLIDESHOW',
+        'IMPORTANTDATES',
       ],
       panelState: {
         deliveries: 'COLLAPSED',
@@ -96,6 +100,7 @@ export default {
         fun: 'COLLAPSED',
         meals: 'COLLAPSED',
         foodSlideshow: 'OPEN',
+        importantDates: 'OPEN',
       },
     }
   },
@@ -118,6 +123,9 @@ export default {
     },
     showFoodSlideshow() {
       return this.selectedPanels.includes('FOODSLIDESHOW')
+    },
+    showImportantDates() {
+      return this.selectedPanels.includes('IMPORTANTDATES')
     },
     showNextSoxGame() {
       return this.selectedPanels.includes('SOX')
@@ -154,6 +162,7 @@ export default {
           'TRASH',
           '3DPRINTER',
           'FOODSLIDESHOW',
+          'IMPORTANTDATES',
         ]
         this.panelState = {
           deliveries: 'OPEN',
@@ -165,6 +174,7 @@ export default {
           fun: 'COLLAPSED',
           meals: 'COLLAPSED',
           foodSlideshow: 'OPEN',
+          importantDates: 'OPEN',
         }
       })
     },
