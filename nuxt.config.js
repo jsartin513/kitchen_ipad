@@ -72,5 +72,7 @@ export default defineNuxtConfig({
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
+  publicRuntimeConfig: { printApiKey: process.env.PRINT_API_KEY || 'blah' },
+
   devServerHandlers: [],
 })
