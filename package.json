@@ -25,7 +25,7 @@
     "@nuxtjs/pwa": "^3.3.5",
     "@pinia/nuxt": "^0.3.0",
     "@vueuse/core": "^9.1.0",
-    "core-js": "^3.19.3",
+    "core-js": "^3.27.2",
     "nuxt-edge": "latest",
     "pinia": "^2.0.16",
     "pinia-plugin-persistedstate": "^1.6.3",
