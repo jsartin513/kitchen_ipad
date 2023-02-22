@@ -27,7 +27,7 @@
     "@vueuse/core": "^9.1.0",
     "core-js": "^3.19.3",
     "nuxt-edge": "latest",
-    "pinia": "^2.0.16",
+    "pinia": "^2.0.32",
     "pinia-plugin-persistedstate": "^1.6.3",
     "vue": "^2.6.14",
     "vue-no-ssr": "^1.1.1",
